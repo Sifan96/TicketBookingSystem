@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
+import validateform from 'src/app/helper/validateform';
 import ValidateForm from 'src/app/helper/validateform';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,16 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: any;
+  
 
-  constructor(private auth: AuthService) { } //, private fb:FormBuilder
+  loginForm! : FormGroup
+  constructor(private fb:FormBuilder , private auth:AuthService) { } //, private fb:FormBuilder
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
   }
   onLogin(){
     if (this.loginForm.valid){
       console.log(this.loginForm.value)
-
       this.auth.login(this.loginForm.value)
       .subscribe({
         next:(res)=>{
@@ -28,17 +33,31 @@ export class LoginComponent implements OnInit {
         error:(err)=>{
           alert(err?.error.message)
         }
-      } )
+     } )
       console.log(this.loginForm)
     }else {
-      ValidateForm.validateAllFormFileds(this.loginForm)
+      console.log("Form is not valid")
+     validateform.validateAllFormFileds(this.loginForm);
+      alert("Your Form is Invalid")
     }
 
 
+
     }
 
+    // private validateAllFormFields(formGroup: FormGroup){
+    //   Object.keys(formGroup.controls).forEach(field =>{
+    //     const control = formGroup.get(field);
+    //     if (control instanceof FormGroup){
+    //       control.markAsDirty({onlySelf:true});
+    //     }else if (control instanceof FormGroup){
+    //       this.validateAllFormFields(control)
+    //     }
+    //   })
+    // }
+
+  
   }
- 
 
 
 

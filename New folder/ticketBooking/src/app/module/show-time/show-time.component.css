@@ -1,0 +1,51 @@
+.show-time-page {
+  width: 360px;
+  max-width: 360px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 40px;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.show-time-header h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.form-control {
+  display: flex;
+  /* margin-top: 24px; */
+}
+
+.form-control label {
+  display: flex;
+  margin-right: 16px;
+  font-size: 14px;
+  width: 30%;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.form-control input,
+select {
+  background: #f2f2f2;
+  width: 70%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: #0c0564;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}

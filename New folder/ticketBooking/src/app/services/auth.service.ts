@@ -5,19 +5,29 @@ import {HttpClient} from "@angular/common/http"
   providedIn: 'root'
 })
 export class AuthService {
+  numberofSeat(value: any) {
+    throw new Error('Method not implemented.');
+  }
+  showTime: any;
+  addShowTime(value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   // Create Authentication 
 
-  private baseUrl:string = "https://localhost:7036/api/UserControllers/"
+  private baseUrl:string = "https://localhost:7036/api/"
 
   constructor(private http : HttpClient) { }
 
-  register(userObj:any){
-    return this.http.post<any>(`${this.baseUrl}register`,userObj)
+  registerUser(userObj:any){
+    return this.http.post<any>(`${this.baseUrl}User/register`,userObj);
 
-  }
+    }
 
   login(loginObj:any){
-    return this.http.post<any>(`${this.baseUrl}authendication`,loginObj)
+    return this.http.post<any>(`${this.baseUrl}User/authenticate`,loginObj);
   }
+
+
+
 }

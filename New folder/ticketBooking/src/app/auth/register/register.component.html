@@ -1,18 +1,20 @@
-<div class="login-page">
+<p style="text-align: center;"></p>
+<div class="register-page" >
     <div class="form">
-      <div class="login">
-        <div class="login-header">
+      <div class="register">
+        <div class="register-header">
           <h3>REGISTRATION</h3>
           <p>Please enter your credentials to registration.</p>
         </div>
       </div>
-      <form class="login-form">
-        <input type="text" placeholder="first name"/>
-        <input type="text" placeholder="last name"/>
-        <input type="text" placeholder="phone number"/>
-        <input type="text" placeholder="email"/>
-        <input type="password" placeholder="password"/>
-        <button (click)="onRegister()">register</button>
+      <form action="#" class="login-form" [formGroup]="registerForm" >
+        <input formControlName="firstName" type="text" placeholder="first name" required/>
+        <input formControlName="lastName" type="text" placeholder="last name" required/>
+        <input formControlName="mobile" type="text" placeholder="phone number" required/>
+        <input formControlName="email" type="text" placeholder="email" required/>
+        <input formControlName="password" type="password" placeholder="password" required/>
+        <button (click)="registerSubmited()" type="submit">register</button>  
+        <p class="message">Already have Account? <a href="http://localhost:4200/login">LogIn</a></p>
         
       </form>
     </div>
